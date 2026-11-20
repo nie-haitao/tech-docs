@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>最坏市场环境下中国汽车产业格局推演</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2b46'/%3E%3Cpath d='M16 44 L32 16 L48 44' stroke='%23c9b47e' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='40' r='4' fill='%23c9b47e'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f5f3ee;          /* 暖灰纸白 */
+    --paper:#ffffff;
+    --ink:#1d2530;          /* 深墨 */
+    --ink-2:#4a5563;        /* 次级墨 */
+    --ink-3:#8a94a1;        /* 弱墨 */
+    --line:#e2ddd3;
+    --line-2:#d6d0c4;
+    --accent:#0f2b46;       /* 深藏青 - 主 */
+    --accent-2:#b0893f;     /* 金属金 - 强调 */
+    --red:#a44a3a;          /* 淘汰/风险 */
+    --green:#3f6d5a;        /* 保留/稳健 */
+    --blue:#2f5d8a;
+    --chip:#eee9df;
+    --chip-line:#ddd6c8;
+    --sans:"Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    --serif:"Noto Serif SC",-apple-system,"Songti SC",serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* ============ HERO ============ */
+  .hero{
+    background:linear-gradient(150deg,#0b1e33 0%,#122c4a 55%,#0f2b46 100%);
+    color:#eef1f4;
+    padding:72px 0 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .grid-lines{
+    position:absolute;inset:0;opacity:.08;pointer-events:none;
+    background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
+    background-size:44px 44px;
+  }
+  .hero .wrap{position:relative;}
+  .hero .kicker{
+    font-size:13px;letter-spacing:.28em;color:#c9b47e;
+    margin-bottom:20px;font-weight:500;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-size:42px;line-height:1.28;font-weight:700;
+    max-width:820px;letter-spacing:.01em;
+  }
+  .hero .sub{
+    margin-top:22px;font-size:18px;color:#cdd8e4;max-width:760px;line-height:1.8;
+  }
+  .hero .stats{
+    display:flex;flex-wrap:wrap;gap:34px;margin-top:42px;padding-top:34px;
+    border-top:1px solid rgba(255,255,255,.16);
+  }
+  .hero .stat .num{font-family:var(--serif);font-size:34px;font-weight:700;color:#fff;}
+  .hero .stat .num em{font-style:normal;color:#c9b47e;}
+  .hero .stat .lab{font-size:13px;color:#9fb1c4;margin-top:4px;letter-spacing:.05em;}
+
+  /* ============ SECTION CHROME ============ */
+  section{padding:64px 0;}
+  .sec-head{margin-bottom:34px;}
+  .sec-num{
+    font-size:13px;letter-spacing:.24em;color:var(--accent-2);font-weight:600;
+    margin-bottom:10px;
+  }
+  .sec-title{
+    font-family:var(--serif);font-size:28px;font-weight:700;line-height:1.3;color:var(--ink);
+  }
+  .sec-title .hl{color:var(--accent);}
+  .sec-lead{
+    margin-top:14px;font-size:16px;color:var(--ink-2);max-width:820px;line-height:1.85;
+  }
+  .divider{border:none;border-top:1px solid var(--line);margin:0;}
+
+  /* ============ 正文排版 ============ */
+  p.body{margin-bottom:16px;font-size:16px;line-height:1.9;color:var(--ink);}
+  p.body strong{color:var(--accent);font-weight:600;}
+  p.note{font-size:13px;color:var(--ink-3);margin-top:8px;}
+  .callout{
+    background:var(--paper);border-left:4px solid var(--accent);
+    padding:20px 24px;margin:26px 0;border-radius:0 8px 8px 0;
+    box-shadow:0 1px 2px rgba(20,30,50,.04);
+  }
+  .callout .ct-title{font-weight:700;color:var(--accent);font-size:15px;margin-bottom:6px;}
+  .callout p{font-size:15px;color:var(--ink-2);line-height:1.85;}
+  .callout.gold{border-left-color:var(--accent-2);}
+  .callout.gold .ct-title{color:#8a6d2f;}
+
+  h3.block-title{font-family:var(--serif);font-size:20px;font-weight:700;margin:34px 0 14px;color:var(--ink);}
+  h3.block-title::before{content:"";display:inline-block;width:14px;height:3px;background:var(--accent-2);vertical-align:middle;margin-right:10px;}
+
+  ul.list{margin:0 0 18px 0;padding:0;list-style:none;}
+  ul.list li{
+    padding-left:24px;position:relative;margin-bottom:10px;font-size:15px;line-height:1.8;color:var(--ink-2);
+  }
+  ul.list li::before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;background:var(--accent);transform:rotate(45deg);}
+  ul.list li strong{color:var(--ink);}
+  ul.list.tight li{margin-bottom:6px;}
+
+  /* ============ TABLES ============ */
+  .tbl-wrap{overflow-x:auto;margin:18px 0 28px;border:1px solid var(--line);border-radius:8px;background:var(--paper);-webkit-overflow-scrolling:touch;}
+  table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:640px;}
+  @media (max-width:768px){
+    table{min-width:620px;}
+    .tbl-wrap{border-left:none;border-right:none;border-radius:0;}
+  }
+  thead th{
+    background:#f0ebe1;color:var(--accent);font-weight:600;font-size:13.5px;
+    padding:12px 14px;text-align:left;border-bottom:2px solid var(--line-2);letter-spacing:.02em;
+  }
+  tbody td{
+    padding:11px 14px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-2);vertical-align:top;line-height:1.6;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#faf8f4;}
+  td.keep,td.bad,td.warn{font-weight:600;font-size:13px;}
+  td.keep{color:var(--green);}
+  td.bad{color:var(--red);}
+  td.warn{color:#a06a1f;}
+
+  /* ============ TAGS / CHIPS ============ */
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 24px;}
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:7px 14px;border-radius:999px;border:1px solid var(--chip-line);
+    background:var(--chip);font-size:13.5px;color:var(--ink-2);font-weight:500;
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .chip.g .dot{background:var(--green);} .chip.g{color:#33503f;}
+  .chip.r .dot{background:var(--red);} .chip.r{color:#7e3b2e;}
+  .chip.b .dot{background:var(--blue);} .chip.b{color:#24486e;}
+  .chip.k .dot{background:var(--accent-2);} .chip.k{color:#6f5a25;}
+
+  /* ============ CHART ============ */
+  .chart-card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px 20px 8px;margin:20px 0;}
+  .chart-card .c-title{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .chart-card .c-sub{font-size:12.5px;color:var(--ink-3);margin-bottom:10px;}
+  .chart{width:100%;}
+
+  /* ============ 演进时间轴 ============ */
+  .timeline{margin:26px 0;position:relative;}
+  .tl-grid{display:grid;grid-template-columns:64px 1fr;gap:0;border-top:2px solid var(--accent);padding-top:0;position:relative;}
+  .tl-item{display:contents;}
+  .tl-dot{position:relative;padding-top:0;}
+  .tl-dot::before{
+    content:"";position:absolute;top:-7px;left:22px;width:16px;height:16px;border-radius:50%;
+    background:var(--paper);border:4px solid var(--accent-2);
+  }
+  .tl-body{padding:0 0 26px 20px;position:relative;}
+  .tl-body .tl-phase{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.04em;}
+  .tl-body .tl-time{font-size:13px;color:var(--ink-3);margin-bottom:4px;}
+  .tl-body .tl-desc{font-size:14.5px;color:var(--ink-2);line-height:1.8;}
+
+  /* ============ 集群卡片 ============ */
+  .cluster-grid{display:grid;grid-template-columns:1fr;gap:18px;margin:24px 0;}
+  .cluster{
+    border:1px solid var(--line);border-radius:10px;background:var(--paper);
+    overflow:hidden;
+  }
+  .cluster .c-head{
+    padding:16px 22px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);
+    background:linear-gradient(90deg,#f0ebe1,var(--paper));
+  }
+  .cluster .c-head .badge{
+    font-size:12px;letter-spacing:.1em;color:#fff;background:var(--accent);
+    padding:4px 10px;border-radius:4px;font-weight:600;flex-shrink:0;
+  }
+  .cluster .c-head h4{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--ink);}
+  .cluster .c-head .tag{font-size:12px;color:var(--ink-3);}
+  .cluster .c-body{padding:16px 22px 20px;}
+  .cluster .c-body p{font-size:14.5px;color:var(--ink-2);line-height:1.85;margin-bottom:10px;}
+  .brand-pair{
+    display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;
+  }
+  .brand{
+    padding:5px 12px;border-radius:6px;font-size:13px;font-weight:600;border:1px solid;
+  }
+  .brand.keep{background:#eef4ef;border-color:#cfe0d4;color:#33503f;}
+  .brand.drop{background:#f6ece9;border-color:#e4cfc8;color:#7e3b2e;text-decoration:line-through;opacity:.85;}
+  .brand.hub{background:#eef1f6;border-color:#d4dde8;color:#24486e;}
+  .brand.ch{background:#f6f1e4;border-color:#e2d6b4;color:#6f5a25;}
+
+  /* ============ 风险条 ============ */
+  .risk-list{margin:20px 0;}
+  .risk-item{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+  .risk-item .rk-name{width:110px;font-size:14px;font-weight:600;color:var(--ink);flex-shrink:0;}
+  .risk-item .rk-bar{flex:1;height:22px;background:#ece8de;border-radius:4px;overflow:hidden;}
+  .risk-item .rk-fill{height:100%;border-radius:4px;}
+  .risk-item .rk-val{width:74px;text-align:right;font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums;}
+
+  /* ============ FOOTER ============ */
+  footer{padding:48px 0 60px;border-top:1px solid var(--line);margin-top:20px;background:#ece8de;}
+  footer .wrap{color:var(--ink-3);font-size:13px;}
+  footer h5{font-family:var(--serif);color:var(--ink);font-size:16px;margin-bottom:12px;font-weight:700;}
+
+  @media (max-width:768px){
+    .hero{padding:52px 0 44px;}
+    .hero h1{font-size:30px;}
+    .hero .sub{font-size:16px;}
+    .hero .stats{gap:22px;}
+    .hero .stat .num{font-size:28px;}
+    section{padding:48px 0;}
+    .sec-title{font-size:23px;}
+    .cluster-grid{grid-template-columns:1fr;}
+    .risk-item{flex-wrap:wrap;}
+    .risk-item .rk-name{width:auto;min-width:96px;}
+    .tl-grid{grid-template-columns:44px 1fr;}
+    .tl-dot::before{left:13px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="grid-lines"></div>
+  <div class="wrap">
+    <div class="kicker">中国汽车产业 · 长期格局推演研报</div>
+    <h1>最坏市场环境下，中国汽车产业如何收敛成寡头格局</h1>
+    <p class="sub">以"行业惨烈内卷 + 2028购置税退坡 + 合资持续萎缩 + 全球贸易壁垒抬升"为最坏前提，推演三大国有集群整合与民营阵营演进，直至远期寡头稳态。本报告所有销量与份额均为情景推演假设，非实际预测。</p>
+    <div class="stats">
+      <div class="stat"><div class="num"><em>3</em> 大</div><div class="lab">国有集群整合</div></div>
+      <div class="stat"><div class="num"><em>+7</em> 家</div><div class="lab">独立车企稳态</div></div>
+      <div class="stat"><div class="num"><em>10</em> 家</div><div class="lab">远期整车集团</div></div>
+      <div class="stat"><div class="num"><em>2030</em></div><div class="lab">成熟存量稳态</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 01 导言与核心结论 ============ -->
+<section id="s1">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">第一章 · 导言与核心结论</div>
+      <h2 class="sec-title">行业收敛的底层逻辑与<b class="hl">三张牌</b></h2>
+      <p class="sec-lead">成熟汽车市场天然是寡头格局。在"最坏市场环境"的前提假设下，中国汽车产业会沿着「三大国有集群整合 + 民营阵营淘汰兼并」两条主线，逐步收敛到极少数具备全球竞争力的整车集团。</p>
+    </div>
+
+    <div class="callout">
+      <div class="ct-title">一句话结论</div>
+      <p>远期稳态：<strong>三大国有集群（长安北汽 / 一汽广汽 / 东风上汽）+ 七家独立车企</strong>，合计约 <strong>10 个整车集团</strong>。产业不会收敛成唯一一家垄断巨头，而是保留多个主体良性竞争，同时集中资源对抗民营巨头、布局全球市场。</p>
+    </div>
+
+    <h3 class="block-title">产业收敛的"三张牌"（贯穿全篇的分析框架）</h3>
+    <ul class="list">
+      <li><strong>① 自有基础盘品牌</strong>——守住整车制造、底盘、三电、供应链、海外渠道与自研能力底线，不把命脉全部押给外部供应商。如启源、奕派、传祺、MG。</li>
+      <li><strong>② 华为合作高端品牌</strong>——快速补齐智能化短板、获取用户心智，抓增量。如阿维塔、享界、尚界、岚图、问界。</li>
+      <li><strong>③ 中间重叠的试验品牌</strong>——定位重叠、无独特心智、需持续烧钱者，最坏环境下优先冻结新品投放，在消费者视角逐步被市场淘汰。如深蓝、智己、极狐。</li>
+    </ul>
+
+    <h3 class="block-title">核心推演结论（速览）</h3>
+    <table>
+      <colgroup><col style="width:22%"><col style="width:52%"><col style="width:26%"></colgroup>
+      <thead><tr><th>维度</th><th>推演结论</th><th>关键角色</th></tr></thead>
+      <tbody>
+        <tr><td>国有侧整合</td><td>从业务协同起步，经交叉持股，极端恶化后再谈资产重组；形成三大集群</td><td>长安北汽 / 一汽广汽 / 东风上汽</td></tr>
+        <tr><td>民营侧收敛</td><td>13 家中期牌桌 → 淘汰兼并 → 7 家独立集团稳态</td><td>比亚迪 / 小米 / 吉利等</td></tr>
+        <tr><td>远期稳态</td><td>3 大国有集群 + 7 家独立车企 = 10 家，之后仍可能二次收敛</td><td>比亚迪为"超级龙头"</td></tr>
+        <tr><td>华为生态角色</td><td>高端智能化的"加速器"，但长期会导致智能化体验趋同</td><td>阿维塔 / 享界 / 尚界 / 问界</td></tr>
+        <tr><td>最脆弱标的</td><td>理想、赛力斯（问界）在远期有最高被整合概率</td><td>理想 / 赛力斯</td></tr>
+      </tbody>
+    </table>
+    <p class="note">注：以上为基于最坏市场环境前提的推演假设，不代表对任何企业的实际经营判断或预测。</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 02 前提假设 ============ -->
+<section id="s2">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">第二章 · 前提假设</div>
+      <h2 class="sec-title">"最坏市场环境"的<b class="hl">参数设定</b></h2>
+      <p class="sec-lead">全篇推演建立在一组明确的悲观前提之上。只有把这些约束同时满足，后续的整合逻辑才成立。</p>
+    </div>
+
+    <div class="cluster-grid">
+      <div class="cluster">
+        <div class="c-head"><h4>行业竞争层面</h4><div class="tag">存量厮杀</div></div>
+        <div class="c-body">
+          <p><strong>惨烈内卷持续：</strong>价格战长期化，多数车企难以维持健康毛利；以量换价的恶性竞争成为常态。</p>
+          <p><strong>2028 购置税退坡：</strong>新能源购置税优惠逐步退出，抬高购车成本，挤压 20 万以下价格带的终端需求，对走量品牌冲击最明显。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>合资盘层面</h4><div class="tag">现金奶牛萎缩</div></div>
+        <div class="c-body">
+          <p><strong>合资持续大幅下滑：</strong>大众、丰田、本田、通用、日产等合资业务逐年台阶式缩水，利润大幅削减。</p>
+          <p><strong>供血逻辑断裂：</strong>过去合资利润反哺自主品牌研发；当合资失血，各国有车企"独立烧钱 + 重复研发"的模式难以为继。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>资金与政策层面</h4><div class="tag">资源零和博弈</div></div>
+        <div class="c-body">
+          <p><strong>集团资金收紧：</strong>内部品牌间对研发、营销预算呈零和博弈，资源向"优先级高"的品牌倾斜。</p>
+          <p><strong>国资委导向：</strong>国家不希望国有车企各自独立烧钱、重复建设、国内互相内卷；鼓励战略性重组与专业化整合。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>全球层面</h4><div class="tag">贸易壁垒抬升</div></div>
+        <div class="c-body">
+          <p><strong>出海受阻：</strong>欧盟碳关税、美国高关税、各国本地含量法规与反倾销调查，压缩出口利润。</p>
+          <p><strong>本地化要求上升：</strong>单纯"国内造、卖海外"的模式遇阻，需要海外建厂与本地布局，投入巨大。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <div class="ct-title">本报告的口径与边界</div>
+      <p>区分<strong>【集团】（独立决策主体，算竞争玩家）</strong>与<strong>【品牌】（面向消费者销售）</strong>。集团远期收敛到约 10 家；品牌因同集团多品牌分层，会多于 10 个，约 10 个主力品牌，其余为小众细分（超跑、硬派越野等）。文中所有销量、份额数字均为情景推演假设，非实际预测。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 03 行业收敛底层逻辑 ============ -->
+<section id="s3">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">第三章 · 收敛底层逻辑</div>
+      <h2 class="sec-title">为什么产业必然走向<b class="hl">寡头格局</b></h2>
+      <p class="sec-lead">成熟汽车市场的历史规律，叠加国资委的顶层导向，共同决定了中国汽车产业终局的收敛方向。</p>
+    </div>
+
+    <h3 class="block-title">成熟市场的历史规律</h3>
+    <p class="body">美国从"底特律三巨头"到全球化整合，欧洲形成大众集团、Stellantis、宝马、奔驰等少数巨头，都印证一个规律：<strong>成熟汽车市场能存活的大型整车集团很少，品牌数量会更多（同一集团多品牌分层）。</strong>规模带来的研发摊薄、供应链议价、渠道与合规成本优势，在存量时代权重越来越高。</p>
+
+    <h3 class="block-title">国资委的顶层目标</h3>
+    <ul class="list">
+      <li><strong>停止内部重复投入：</strong>各家单独自研智驾、芯片、底盘、三电，巨额经费分散、效果参差；合并/协同后一套底层研发多家共用。</li>
+      <li><strong>保留多条技术路线，不押注单一方案：</strong>允许多家国企分别与华为合作（智选 / CHN），同时保留自有自研底座，避免智能化被外部厂商完全锁死。</li>
+      <li><strong>打造具备全球竞争力的集团：</strong>规模足够大，零部件集采议价、海外渠道建设才有成本优势，才能与比亚迪、吉利及海外车企对抗。</li>
+    </ul>
+
+    <h3 class="block-title">"自有底盘 + 华为合作"的二元组合范式</h3>
+    <p class="body">在最坏市场环境下，大型国有车企会不约而同收敛为二元组合：</p>
+    <div class="chip-row">
+      <span class="chip k"><span class="dot"></span>自有基础盘品牌：守规模、制造、供应链、自研、海外</span>
+      <span class="chip b"><span class="dot"></span>华为合作品牌：补智能化短板、抓增量、获心智</span>
+      <span class="chip r"><span class="dot"></span>中间重叠品牌：优先停新品、被市场淘汰</span>
+    </div>
+    <div class="callout">
+      <div class="ct-title">一个关键共性风险</div>
+      <p>这套架构长期代价是：品牌自身在高阶智能、软件定义汽车上的自研投入会缩减，产品差异化越来越依赖华为 ADS 与鸿蒙座舱。当所有集团的华为合作车型智能化趋同，竞争又会落回底盘、制造、成本与价格——那时考验的就是保留的自有底盘品牌的功底。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 04 国有集群整合 ============ -->
+<section id="s4">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">第四章 · 三大国有集群整合</div>
+      <h2 class="sec-title">从业务协同到<b class="hl">股权深度绑定</b>的渐进路径</h2>
+      <p class="sec-lead">国家层面乐见国有车企深度协同、统一采购、合并前瞻研发、减少重复内卷；但股权层面的彻底合并是重大工程，涉及央地利益博弈，只会作为极端情形下的后手选项。推进节奏是"市场倒逼 + 渐进整合"。</p>
+    </div>
+
+    <div class="callout">
+      <div class="ct-title">整合的核心驱动力</div>
+      <p><strong>合资盘持续萎缩是最自然的催化剂。</strong>大众、通用、日产、本田等合资业务逐年下滑到"衰败得不行"，国企过去赖以输血的基本盘消失；加上对内重复投入、对外单兵出海的两大压力，市场会倒逼它们走向协同。国资委不是强行"拉郎配"，而是用市场压力推动改革。</p>
+    </div>
+
+    <h3 class="block-title">渐进整合的三阶段演进</h3>
+    <div class="timeline">
+      <div class="tl-grid">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-phase">阶段一 · 业务联合</div>
+            <div class="tl-time">最先落地 · 阻力最小</div>
+            <div class="tl-desc">不触碰股权、控制权、地方税收、合资资产。零部件联合集采压低 BOM 成本；前瞻技术（智驾、芯片、底层软件、材料）共建停止重复立项；产能与海外渠道互通。各自集团内部自行精简品牌矩阵，执行赛马机制。</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-phase">阶段二 · 交叉持股</div>
+            <div class="tl-time">市场进一步恶化后启动</div>
+            <div class="tl-desc">参考一汽入股广汽的模式：央企作为战略股东入股地方车企，不谋求直接接管控制权。核心目的是形成利益共同体、减少内部博弈，保障业务协同长期落地。合资资产优先隔离，规避外资股东条款约束。地方国资保留控股权，保住地方税收与就业，大幅降低央地博弈阻力。</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-phase">阶段三 · 深度资产重组</div>
+            <div class="tl-time">极端行业出清才触发 · 后手</div>
+            <div class="tl-desc">市场继续恶化、多家国企自主品牌持续大额亏损时，才会推进业务板块合并甚至部分资产划转。但不会把三大集群合并成一家垄断巨头——国资委要保留三大集群之间的良性竞争，防止垄断带来创新停滞，同时保留三套出海主体分头开拓不同海外区域。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="block-title">三大国有集群：结构、品牌矩阵与稳定性</h3>
+    <p class="body">每一组都是"央企牵头 + 地方国资配套"的配对范式，保留独立法人主体，优先业务协同，不急于一次性股权吞并。但三组内部结构差异明显，稳定性也不同。</p>
+
+    <div class="cluster-grid">
+      <div class="cluster">
+        <div class="c-head"><span class="badge">集群 A</span><h4>长安 + 北汽</h4><div class="tag">央企 × 北京地方国资</div></div>
+        <div class="c-body">
+          <p><strong>品牌收敛：</strong>保留启源（国内走量现金流底盘）、阿维塔（CHN 三方合资高端）；深蓝、极狐逐步淡出。</p>
+          <div class="brand-pair">
+            <span class="brand hub">启源 · 走量底盘</span><span class="brand hub">阿维塔 · CHN 高端</span><span class="brand hub">享界 · 华为智选</span>
+            <span class="brand drop">深蓝</span><span class="brand drop">极狐</span>
+          </div>
+          <p><strong>稳定性：最稳定。</strong>高低价格带清晰隔离（启源 20 万内、阿维塔 25 万以上），几乎不内卷；阿维塔是三方合资（华为、宁德时代是股东），长安不能单方面轻易砍掉，绑定更深；启源提供国内现金流。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><span class="badge">集群 B</span><h4>一汽 + 广汽</h4><div class="tag">央企 × 广东地方国资</div></div>
+        <div class="c-body">
+          <p><strong>股权绑定已落地：</strong>一汽成为广汽第二大股东，优先整合南北丰田，后续延伸到新能源研发、零部件集采。</p>
+          <div class="brand-pair">
+            <span class="brand hub">传祺 · 自有底盘</span><span class="brand hub">昊铂 · 新能源抓手</span><span class="brand hub">南北丰田 · 合资过渡</span>
+            <span class="brand drop">冗余内耗品牌</span>
+          </div>
+          <p><strong>突破口在合资：</strong>南北丰田是同一家日系伙伴，容易整合，股权绑定阻力更小；依托合资剩余现金流托底转型，华南 + 东北产能布局。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><span class="badge">集群 C</span><h4>东风 + 上汽</h4><div class="tag">央企 × 上海地方国资</div></div>
+        <div class="c-body">
+          <p><strong>品牌收敛：</strong>保留奕派（国内走量底盘）、岚图（高端 MPV，华为 HI）、尚界（华为智选走量）、MG（海外底盘）；智己逐步淡出。</p>
+          <div class="brand-pair">
+            <span class="brand hub">奕派 · 走量底盘</span><span class="brand hub">岚图 · 高端 MPV</span><span class="brand hub">尚界 · 华为智选</span><span class="brand hub">MG · 海外底盘</span>
+            <span class="brand drop">智己</span><span class="brand drop">猛士（收缩）</span>
+          </div>
+          <p><strong>国家队出海核心集群：</strong>MG 成熟的欧洲、东南亚渠道叠加东风海外产能；岚图高端 MPV 主攻海外高端细分；尚界负责国内主流家用。两大阻力：上海国资独立性诉求最强，以及大众、通用、日产、本田四家外资合资的复杂约束。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="block-title">三大集群稳定性横向对比</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:18%"><col style="width:24%"><col style="width:14%"><col style="width:44%"></colgroup>
+        <thead><tr><th>集群</th><th>保留组合</th><th>稳定性</th><th>核心差异</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>长安 + 北汽</strong></td><td>启源 + 阿维塔（CHN）</td><td class="keep">最稳定</td>
+            <td>高低价格带完全隔离，阿维塔三方合资，长安不能单方面轻易叫停</td>
+          </tr>
+          <tr>
+            <td><strong>一汽 + 广汽</strong></td><td>传祺 + 昊铂 + 合资过渡</td><td class="keep">较稳定</td>
+            <td>南北丰田是统一突破口，股权绑定阻力最小，已落地</td>
+          </tr>
+          <tr>
+            <td><strong>东风 + 上汽</strong></td><td>奕派 + 岚图 + 尚界 + MG</td><td class="warn">中高风险</td>
+            <td>合资资产包袱最重（四家外资），上海地方诉求强；岚图、智己均为集团可取舍项</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="ct-title">国家视角的终局格局</div>
+      <p>国家不会只留一家巨型车企，会保留 <strong>2–3 个具备全球竞争力的国有整车集团</strong> 互相良性竞争，避免完全垄断；同时消灭大量分散、独立、小规模的国有整车主体，减少重复投入。三大集群各司其职：长安北汽集群主攻国内市场攻坚，一汽广汽集群依托合资过渡，东风上汽集群作为出海核心。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 05 民营阵营演进 ============ -->
+<section id="s5">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">第五章 · 民营阵营演进</div>
+      <h2 class="sec-title">13 家中期牌桌 → 7 家稳态，<b class="hl">并购与出清</b></h2>
+      <p class="sec-lead">民营（含地方国资）阵营是最激烈的淘汰赛现场。中期牌桌一度膨胀到 13 家，但会通过并购、整合与出清，收敛到 7 家独立集团，最终和三大国有集群构成"3 + 7 = 10 家"的稳态。</p>
+    </div>
+
+    <h3 class="block-title">演进链条</h3>
+    <p class="body">从"现状玩家齐备"到"稳态格局"，民营阵营经历两轮收缩：</p>
+    <div class="callout">
+      <div class="ct-title">两轮收敛（示意）</div>
+      <p><strong>中期牌桌（约 13 家）</strong>：比亚迪、吉利、奇瑞、长城、理想、小鹏、蔚来、零跑、江淮、小米 + 三大国有集群 → <strong>第一轮民营整合（淘汰 3 家）</strong> → <strong>稳态（3 大国有集群 + 7 家独立车企 = 10 家）</strong> → <strong>远期二次收敛（约 7 家左右，见第七章）</strong></p>
+    </div>
+
+    <h3 class="block-title">并购推演：最合理的几条路径</h3>
+    <div class="cluster-grid">
+      <div class="cluster">
+        <div class="c-head"><h4>小米收购小鹏 + 长城</h4><div class="tag">民营巨头扩张</div></div>
+        <div class="c-body">
+          <p><strong>收购小鹏：</strong>核心价值是智驾技术、欧洲海外渠道、三电研发团队。小米自研智驾虽进展快，但直接收购等于拿到成熟全栈智驾体系 + 现成欧洲本地化布局，省去多年研发与法规认证投入。小鹏品牌保留，主打智能轿车，与小鹏形成高低搭配。</p>
+          <p><strong>收购长城：</strong>核心拿到全国多座整车产能、SUV / 硬派越野底盘、坦克细分品牌。补齐 SUV、越野品类，不用从头开发平台。哈弗、坦克品牌保留，作为集团内越野 / SUV 子品牌。</p>
+          <p><strong>约束：</strong>长城体量大、股权结构复杂，大概率分步股权收购 + 业务并入；小鹏有大众作为重要股东，交易需经大众同意。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>江淮并入安徽本土体系</h4><div class="tag">地方国资整合</div></div>
+        <div class="c-body">
+          <p>江淮不再作为独立整车集团。<strong>产能、代工资产并入安徽汽车协同平台</strong>（奇瑞 + 蔚来协同）。</p>
+          <p>江淮价值不在自有品牌，而在整车制造基地、大众安徽资产、蔚来代工产线。安徽地方国资更倾向把制造资源留给奇瑞、蔚来，形成安徽本土汽车板块协同，而不是卖给外部企业。江淮品牌保留一部分，但退出独立集团玩家行列。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="block-title">中期牌桌 → 稳态的玩家清单</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:18%"><col style="width:14%"><col style="width:34%"><col style="width:34%"></colgroup>
+        <thead><tr><th>玩家</th><th>阵营</th><th>角色</th><th>稳态命运</th></tr></thead>
+        <tbody>
+          <tr><td><strong>比亚迪</strong></td><td class="keep">保留</td><td>全产业链超级龙头，断层领先</td><td class="keep">7 家中龙头</td></tr>
+          <tr><td><strong>吉利</strong></td><td class="keep">保留</td><td>全球化多品牌集团（沃尔沃、极氪、领克）</td><td class="keep">独立集团</td></tr>
+          <tr><td><strong>奇瑞</strong></td><td class="keep">保留</td><td>新兴市场出海王牌（安徽地方国资）</td><td class="keep">独立集团</td></tr>
+          <tr><td><strong>理想</strong></td><td class="keep">保留</td><td>国内高端家庭增程细分龙头</td><td class="warn">短期独立，远期并购标的</td></tr>
+          <tr><td><strong>蔚来</strong></td><td class="keep">保留</td><td>高端换电，重资产差异化</td><td class="warn">依赖换电利用率</td></tr>
+          <tr><td><strong>零跑</strong></td><td class="keep">保留</td><td>全域自研成本之王，10–20 万市场</td><td class="keep">独立集团</td></tr>
+          <tr><td><strong>小米</strong></td><td class="keep">保留</td><td>吸收小鹏 + 长城资产，产品线全覆盖</td><td class="keep">独立集团</td></tr>
+          <tr><td>长城</td><td class="warn">被并购</td><td>产能、SUV / 越野底盘被小米吸收</td><td class="bad">品牌保留，退出独立集团</td></tr>
+          <tr><td>小鹏</td><td class="warn">被并购</td><td>智驾 + 欧洲渠道被小米吸收</td><td class="bad">品牌保留，退出独立集团</td></tr>
+          <tr><td>江淮</td><td class="bad">并入安徽系</td><td>制造底座归入奇瑞 + 蔚来协同平台</td><td class="bad">退出独立集团</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 06 关键玩家评析 ============ -->
+<section id="s6">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">第六章 · 关键玩家生存空间评析</div>
+      <h2 class="sec-title">零跑、蔚来、奇瑞、吉利、理想、问界<b class="hl">的命运</b></h2>
+      <p class="sec-lead">几家处于"可取舍"位置的关键玩家，各有不同的生存底盘、核心矛盾与长期出路。以下逐一拆解。</p>
+    </div>
+
+    <div class="cluster-grid">
+      <div class="cluster">
+        <div class="c-head"><h4>零跑</h4><div class="tag">前景较优 · 成本之王</div></div>
+        <div class="c-body">
+          <p><strong>护城河：</strong>全域自研（三电、域控、智驾、电子电气架构），核心零部件自制率高，把供应商利润吃掉，在 10–20 万国内最大容量市场形成成本壁垒；资产模式偏轻，盈亏平衡点持续下探；平台复用率高、迭代快，纯电 + 增程双覆盖。</p>
+          <p><strong>短板：</strong>品牌溢价弱，毛利高度依赖规模；向上突破 25 万以上高端市场难度大，赛道上限是主流家用市场。</p>
+          <p><strong>前景判断：</strong>国内主流家用市场的成本之王，<strong>短期有冲击吉利国内走量盘的可能</strong>，前景在几家"中间玩家"里最被看好。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>蔚来</h4><div class="tag">重资产 · 换电</div></div>
+        <div class="c-body">
+          <p><strong>优势：</strong>高端用户心智成型、BaaS 车电分离、换电差异化补能体验；乐道、萤火虫向下延伸；换电网络对外开放，从"专属配套"变公共补能基础设施，可做储能、电网调峰。</p>
+          <p><strong>出路：</strong>换电资产社会化共建（地方国资承接不动产、蔚来负责运营）、多品牌下探扩大用户池、换电网络开放给外部车企。核心风险是必须守住足够保有量，否则单站利用率不足、运营成本难以摊薄。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>奇瑞</h4><div class="tag">出海强 · 国内弱</div></div>
+        <div class="c-body">
+          <p><strong>底盘：</strong>安徽地方国资托底；新兴市场（俄罗斯、中东、拉美、东南亚）渠道极强，海外贡献接近一半销量。</p>
+          <p><strong>核心风险：</strong>高度依赖出口、国内偏弱；海外受地缘政治、关税壁垒、汇率波动影响极大；智驾、高阶智能能力相对薄弱。一旦新兴市场保护主义抬头，增长直接踩刹车。</p>
+          <p><strong>整合路径：</strong>海外受挫时大概率并入安徽产业联盟（奇瑞 + 蔚来 + 江淮深度一体化），<strong>因安徽国资存在，很难被小米 / 吉利这类外部企业收购，多为省内整合。</strong></p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>吉利</h4><div class="tag">底盘厚 · 隐忧大</div></div>
+        <div class="c-body">
+          <p><strong>底盘：</strong>制造、平台、供应链、全球化底蕴最强；沃尔沃、极氪高端资产在手；现金流厚、并购整合能力强。</p>
+          <p><strong>核心隐患：</strong>国内销量依赖 10–18 万走量车型，而 12–25 万腰部新能源赛道缺少持续爆品，正是零跑主攻市场，会被零跑持续挤压；整体利润仍大程度依赖传统燃油。</p>
+          <p><strong>判断：</strong>零跑能重创吉利国内走量业务，但<strong>很难彻底把吉利踢出牌桌</strong>——吉利护城河在全球化布局 + 高端资产（极氪、沃尔沃），零跑难触碰。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>理想</h4><div class="tag">规模最小 · 细分精品</div></div>
+        <div class="c-body">
+          <p><strong>底牌：</strong>极强产品定义 + 高端家庭用户心智，"移动的家"定位难复制；财务底子扎实、现金流健康、研发投入克制；增程守基本盘，纯电（i 系列 + 超充）开第二曲线。</p>
+          <p><strong>致命短板：</strong>赛道天花板低（家庭大六座非海量大盘）；出海起步晚、海外投入成本极高；技术研发被巨头摊薄，单车研发成本天然更高。</p>
+          <p><strong>远期判断：</strong>短期独立稳得住（李想持近 69% 投票权，硬约束）；但长期在寡头深化阶段，是<strong>优质并购标的</strong>（品牌保留、退出独立集团）。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>问界 / 赛力斯</h4><div class="tag">华为生态 · 非独立集团</div></div>
+        <div class="c-body">
+          <p><strong>定性：</strong>赛力斯（问界）不属于独立整车集团，是<strong>鸿蒙智行生态下的制造合作主体</strong>；不属于"3 + 7"框架里的 7 家独立集团。</p>
+          <p><strong>优势：</strong>制造产能成熟、绑定华为全套智能技术栈、入股引望获股东级技术优先供给、重庆地方国资背景。</p>
+          <p><strong>致命短板：</strong>品牌心智高度依附华为，脱离全链路操盘后溢价可能下滑；产品线单一、高度依赖 25 万以上高端智能赛道；核心技术依赖外部供给，技术授权成本侵蚀毛利。</p>
+          <p><strong>最坏环境结局：</strong>被国资（长安重庆系）深度股权整合的概率最高，问界品牌保留，赛力斯退出独立集团玩家行列；但除非高端市场崩塌 + 独立运营转型失败，否则不会触发。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="block-title">玩家横向对比：生存底盘、最大风险、护城河</h3>
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:12%"><col style="width:24%"><col style="width:26%"><col style="width:22%"><col style="width:16%"></colgroup>
+        <thead><tr><th>玩家</th><th>核心基本盘</th><th>最大风险</th><th>护城河</th><th>远期整合概率</th></tr></thead>
+        <tbody>
+          <tr><td><strong>零跑</strong></td><td>10–20 万主流家用</td><td>毛利依赖规模，品牌弱难高端</td><td>全域自研成本壁垒</td><td class="keep">低</td></tr>
+          <tr><td><strong>蔚来</strong></td><td>高端换电用户心智</td><td>换电重资产，依赖保有量</td><td>换电体系 + 品牌溢价</td><td class="warn">中</td></tr>
+          <tr><td><strong>奇瑞</strong></td><td>新兴市场出口</td><td>地缘政治 + 关税壁垒</td><td>海外渠道 + 成本控制</td><td class="warn">中（省内整合）</td></tr>
+          <tr><td><strong>吉利</strong></td><td>全球化 + 高端资产</td><td>国内腰部被零跑挤压</td><td>沃尔沃、极氪、海外渠道</td><td class="keep">极低</td></tr>
+          <tr><td><strong>理想</strong></td><td>国内高端家庭细分</td><td>赛道窄、出海弱、研发摊薄</td><td>产品定义 + 高毛利现金流</td><td class="bad">高（并购标的）</td></tr>
+          <tr><td><strong>问界/赛力斯</strong></td><td>华为智能高端 SUV</td><td>心智依附华为、高端拥挤</td><td>华为技术栈 + 重庆产能</td><td class="bad">高（国资整合）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 07 终局格局推演 ============ -->
+<section id="s7">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">第七章 · 终局格局推演</div>
+      <h2 class="sec-title">2030 稳态：<b class="hl">国内 + 海外</b>的销量与份额</h2>
+      <p class="sec-lead">基准时间 2030 年（行业进入成熟存量阶段），延续最坏市场环境假设。国内乘用车稳态总销量约 3000 万辆/年（新能源占 70%+），中国车企海外总出货约 1000 万辆/年。以下为推演假设。</p>
+    </div>
+
+    <div class="callout">
+      <div class="ct-title">基础总量假设（2030 成熟稳态）</div>
+      <p>国内乘用车年总销量 <strong>3000 万辆</strong>（燃油持续萎缩，新能源占 70%+）；传统外资合资（大众、丰田、本田、通用、日产）国内份额被压缩到合计约 <strong>600 万辆</strong>，不再作为利润奶牛；中国车企海外全年总出货（含海外本地化工厂）<strong>1000 万辆</strong>。</p>
+    </div>
+
+    <h3 class="block-title">国内稳态销量与份额（推演）</h3>
+    <p class="body">三大国有集群 + 七家独立车企瓜分自主品牌国内大盘，比亚迪作为断层龙头领先。</p>
+    <div class="chart-card">
+      <div class="c-title">2030 国内自主品牌销量推演（万辆 / 年）</div>
+      <div class="c-sub">口径：国内乘用车 3000 万辆中，自主品牌约占 2100–2290 万辆；数字为情景推演</div>
+      <svg class="chart" viewBox="0 0 1040 430" role="img" aria-label="2030国内自主品牌销量推演柱状图">
+        <line x1="70" y1="24" x2="70" y2="310" stroke="#d6d0c4"/>
+        <line x1="70" y1="310" x2="1030" y2="310" stroke="#d6d0c4"/>
+        <g stroke="#ece8de" stroke-width="1">
+          <line x1="70" y1="66" x2="1030" y2="66"/>
+          <line x1="70" y1="188" x2="1030" y2="188"/>
+          <line x1="70" y1="310" x2="1030" y2="310"/>
+        </g>
+        <g font-family="'Noto Sans SC',sans-serif" font-size="11" fill="#8a94a1" text-anchor="end">
+          <text x="62" y="314">0</text><text x="62" y="192">200</text>
+          <text x="62" y="70">400</text><text x="62" y="28">700</text>
+        </g>
+        <!-- bars: 700,450,420,380,120,100,80,42,32,28 -->
+        <g font-family="'Noto Sans SC',sans-serif" font-size="11" fill="#1d2530" text-anchor="middle">
+          <rect x="90"  y="24"  width="74" height="286" rx="4" fill="#2f5d8a"/><text x="127" y="14" font-weight="600">700</text>
+          <rect x="183" y="132" width="74" height="178" rx="4" fill="#2f5d8a"/><text x="220" y="122" font-weight="600">450</text>
+          <rect x="276" y="143" width="74" height="167" rx="4" fill="#2f5d8a"/><text x="313" y="133" font-weight="600">420</text>
+          <rect x="369" y="157" width="74" height="153" rx="4" fill="#2f5d8a"/><text x="406" y="147" font-weight="600">380</text>
+          <rect x="462" y="262" width="74" height="48" rx="4" fill="#b0893f"/><text x="499" y="252" font-weight="600">120</text>
+          <rect x="555" y="270" width="74" height="40" rx="4" fill="#b0893f"/><text x="592" y="260" font-weight="600">100</text>
+          <rect x="648" y="278" width="74" height="32" rx="4" fill="#b0893f"/><text x="685" y="268" font-weight="600">80</text>
+          <rect x="741" y="297" width="74" height="13" rx="3" fill="#b0893f"/><text x="778" y="287" font-weight="600">42</text>
+          <rect x="834" y="300" width="74" height="10" rx="3" fill="#b0893f"/><text x="871" y="290" font-weight="600">32</text>
+          <rect x="927" y="301" width="74" height="9"  rx="3" fill="#b0893f"/><text x="964" y="291" font-weight="600">28</text>
+        </g>
+        <g font-family="'Noto Sans SC',sans-serif" font-size="11" fill="#4a5563" text-anchor="middle">
+          <text x="127" y="336">比亚迪</text><text x="220" y="336">东风+上汽</text><text x="313" y="336">长安+北汽</text><text x="406" y="336">一汽+广汽</text>
+          <text x="499" y="336">小米</text><text x="592" y="336">吉利</text><text x="685" y="336">奇瑞</text><text x="778" y="336">理想</text><text x="871" y="336">零跑</text><text x="964" y="336">蔚来</text>
+          <text x="127" y="352" font-size="10" fill="#8a94a1">全产业链</text><text x="220" y="352" font-size="10" fill="#8a94a1">出海主力</text><text x="313" y="352" font-size="10" fill="#8a94a1">高端智能</text><text x="406" y="352" font-size="10" fill="#8a94a1">合资过渡</text>
+          <text x="499" y="352" font-size="10" fill="#8a94a1">全覆盖</text><text x="592" y="352" font-size="10" fill="#8a94a1">多品牌</text><text x="685" y="352" font-size="10" fill="#8a94a1">出海</text><text x="778" y="352" font-size="10" fill="#8a94a1">家庭增程</text><text x="871" y="352" font-size="10" fill="#8a94a1">成本之王</text><text x="964" y="352" font-size="10" fill="#8a94a1">换电</text>
+        </g>
+        <g font-family="'Noto Sans SC',sans-serif" font-size="12" fill="#b0893f" font-weight="600">
+          <text x="118" y="368" text-anchor="start">■ 超级龙头 / 国家队集群</text>
+          <text x="390" y="368" text-anchor="start">■ 独立车企</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:24%"><col style="width:16%"><col style="width:20%"><col style="width:40%"></colgroup>
+        <thead><tr><th>集团 / 集群</th><th>国内销量(万辆)</th><th>定位</th><th>品牌矩阵简述</th></tr></thead>
+        <tbody>
+          <tr><td><strong>比亚迪</strong></td><td>650–750</td><td>全产业链超级龙头</td><td>比亚迪、腾势、仰望；混动 + 纯电全覆盖</td></tr>
+          <tr><td><strong>东风 + 上汽集群</strong></td><td>420–480</td><td>国内家用 + 出海底盘</td><td>奕派、岚图、尚界、MG；智己淡出</td></tr>
+          <tr><td><strong>长安 + 北汽集群</strong></td><td>380–450</td><td>国内家用 + 高端智能</td><td>启源、阿维塔、享界；深蓝、极狐淡出</td></tr>
+          <tr><td><strong>一汽 + 广汽集群</strong></td><td>340–420</td><td>依托合资现金流过渡</td><td>传祺、昊铂、南北丰田</td></tr>
+          <tr><td><strong>吉利</strong></td><td>100</td><td>全球化多品牌</td><td>吉利、极氪、领克、沃尔沃</td></tr>
+          <tr><td><strong>奇瑞</strong></td><td>80</td><td>新兴市场出海</td><td>奇瑞、星途、iCar</td></tr>
+          <tr><td><strong>理想</strong></td><td>40–45</td><td>国内高端家庭</td><td>理想全系，几乎不出海</td></tr>
+          <tr><td><strong>小米（含小鹏长城）</strong></td><td>120</td><td>产品线全覆盖</td><td>小米 + 小鹏 + 哈弗 + 坦克</td></tr>
+          <tr><td><strong>蔚来</strong></td><td>25–30</td><td>高端换电</td><td>蔚来、乐道、萤火虫</td></tr>
+          <tr><td><strong>零跑</strong></td><td>30–35</td><td>成本之王走量</td><td>零跑全系</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">注：长安北汽、东风上汽集群为"3+7"框架下的集群竞争主体（合并统计）；数字为情景推演假设。</p>
+
+    <h3 class="block-title">海外稳态销量（推演，合计约 1000 万辆）</h3>
+    <p class="body">海外市场是分化最明显的地方。国内强 ≠ 海外强，东风上汽集群（MG）是国家队出海第一主力。</p>
+    <div class="chart-card">
+      <div class="c-title">2030 中国车企海外销量推演（万辆 / 年）</div>
+      <div class="c-sub">口径：含海外本地化工厂；数字为情景推演</div>
+      <svg class="chart" viewBox="0 0 1040 400" role="img" aria-label="2030中国车企海外销量推演柱状图">
+        <line x1="70" y1="24" x2="70" y2="300" stroke="#d6d0c4"/>
+        <line x1="70" y1="300" x2="1030" y2="300" stroke="#d6d0c4"/>
+        <g stroke="#ece8de" stroke-width="1">
+          <line x1="70" y1="76" x2="1030" y2="76"/>
+          <line x1="70" y1="188" x2="1030" y2="188"/>
+          <line x1="70" y1="300" x2="1030" y2="300"/>
+        </g>
+        <g font-family="'Noto Sans SC',sans-serif" font-size="11" fill="#8a94a1" text-anchor="end">
+          <text x="62" y="304">0</text><text x="62" y="192">100</text>
+          <text x="62" y="80">200</text><text x="62" y="28">300</text>
+        </g>
+        <!-- bars: 280,210,140,120,120,70,40,15,10,7 -->
+        <g font-family="'Noto Sans SC',sans-serif" font-size="11" fill="#1d2530" text-anchor="middle">
+          <rect x="90"  y="24"  width="74" height="276" rx="4" fill="#b0893f"/><text x="127" y="14" font-weight="600">280</text>
+          <rect x="183" y="102" width="74" height="198" rx="4" fill="#b0893f"/><text x="220" y="92" font-weight="600">210</text>
+          <rect x="276" y="162" width="74" height="138" rx="4" fill="#b0893f"/><text x="313" y="152" font-weight="600">140</text>
+          <rect x="369" y="178" width="74" height="122" rx="4" fill="#b0893f"/><text x="406" y="168" font-weight="600">120</text>
+          <rect x="462" y="178" width="74" height="122" rx="4" fill="#2f5d8a"/><text x="499" y="168" font-weight="600">120</text>
+          <rect x="555" y="222" width="74" height="78"  rx="4" fill="#2f5d8a"/><text x="592" y="212" font-weight="600">70</text>
+          <rect x="648" y="252" width="74" height="48"  rx="4" fill="#2f5d8a"/><text x="685" y="242" font-weight="600">40</text>
+          <rect x="741" y="282" width="74" height="18"  rx="3" fill="#2f5d8a"/><text x="778" y="272" font-weight="600">15</text>
+          <rect x="834" y="288" width="74" height="12"  rx="3" fill="#2f5d8a"/><text x="871" y="278" font-weight="600">10</text>
+          <rect x="927" y="291" width="74" height="9"   rx="3" fill="#2f5d8a"/><text x="964" y="281" font-weight="600">7</text>
+        </g>
+        <g font-family="'Noto Sans SC',sans-serif" font-size="11" fill="#4a5563" text-anchor="middle">
+          <text x="127" y="324">东风+上汽</text><text x="220" y="324">比亚迪</text><text x="313" y="324">奇瑞</text><text x="406" y="324">吉利</text><text x="499" y="324">长安+北汽</text>
+          <text x="592" y="324">一汽+广汽</text><text x="685" y="324">小米</text><text x="778" y="324">零跑</text><text x="871" y="324">蔚来</text><text x="964" y="324">理想</text>
+          <text x="127" y="340" font-size="10" fill="#8a94a1">MG欧洲</text><text x="220" y="340" font-size="10" fill="#8a94a1">东南亚/拉美</text><text x="313" y="340" font-size="10" fill="#8a94a1">新兴市场</text><text x="406" y="340" font-size="10" fill="#8a94a1">沃尔沃欧美</text><text x="499" y="340" font-size="10" fill="#8a94a1">中东/俄</text>
+          <text x="592" y="340" font-size="10" fill="#8a94a1">丰田渠道</text><text x="685" y="340" font-size="10" fill="#8a94a1">欧洲渠道</text><text x="778" y="340" font-size="10" fill="#8a94a1">稳步放量</text><text x="871" y="340" font-size="10" fill="#8a94a1">高端+换电</text><text x="964" y="340" font-size="10" fill="#8a94a1">中东试水</text>
+        </g>
+        <g font-family="'Noto Sans SC',sans-serif" font-size="12" fill="#b0893f" font-weight="600">
+          <text x="118" y="366" text-anchor="start">■ 出海主力</text>
+          <text x="360" y="366" text-anchor="start">■ 配套补充</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <colgroup><col style="width:24%"><col style="width:16%"><col style="width:60%"></colgroup>
+        <thead><tr><th>集团 / 集群</th><th>海外销量(万辆)</th><th>主攻区域</th></tr></thead>
+        <tbody>
+          <tr><td><strong>东风 + 上汽集群</strong></td><td>280</td><td>MG 欧洲 + 东南亚；岚图高端 MPV 面向中东、欧洲</td></tr>
+          <tr><td><strong>比亚迪</strong></td><td>210</td><td>东南亚、拉美、澳洲；欧洲受碳关税限制，规模克制</td></tr>
+          <tr><td><strong>奇瑞</strong></td><td>140</td><td>俄罗斯、拉美、中东、东南亚，新兴市场最强</td></tr>
+          <tr><td><strong>吉利</strong></td><td>120</td><td>欧洲、东南亚、拉美；沃尔沃高端打开欧美</td></tr>
+          <tr><td><strong>长安 + 北汽集群</strong></td><td>120</td><td>东南亚、中东、俄罗斯、拉美</td></tr>
+          <tr><td><strong>一汽 + 广汽集群</strong></td><td>70</td><td>东南亚、中东，依托丰田原有渠道</td></tr>
+          <tr><td><strong>小米（含小鹏长城）</strong></td><td>40</td><td>继承小鹏欧洲渠道 + 长城海外基础</td></tr>
+          <tr><td><strong>零跑</strong></td><td>15</td><td>海外稳步放量，对冲国内价格战</td></tr>
+          <tr><td><strong>蔚来</strong></td><td>10</td><td>高端品牌，附带换电体系</td></tr>
+          <tr><td><strong>理想</strong></td><td>5–10</td><td>中东、中亚高端试水，非主力</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">注：海外合计约 1000 万辆；数字为情景推演假设。理想海外走"高毛利小批量精品出口 + CKD 组装"，不求规模求利润。</p>
+
+    <div class="callout">
+      <div class="ct-title">国内 vs 海外格局分化的关键规律</div>
+      <p><strong>国内市场</strong>拼成本、智能化、渠道：比亚迪最强，三大国家队集群依靠联合集采、平台共享集体对抗比亚迪的垂直产业链成本优势。<strong>海外市场</strong>拼本地化、贸易壁垒、区域渠道：东风上汽集群（MG）、奇瑞、吉利、比亚迪是四大出海主力；北汽、广汽、一汽海外体量偏小，属于配套补充。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 08 远期收敛与风险排序 ============ -->
+<section id="s8">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">第八章 · 远期二次收敛与风险排序</div>
+      <h2 class="sec-title">寡头格局不会停在 <b class="hl">10 家</b></h2>
+      <p class="sec-lead">10 家是第一阶段稳态，汽车行业寡头化不会停止。再过 5–8 年，全球贸易保护加剧、价格战持续侵蚀利润，会触发第二轮合并。</p>
+    </div>
+
+    <h3 class="block-title">远期二次收敛路径</h3>
+    <div class="timeline">
+      <div class="tl-grid">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-phase">第一阶段稳态（5–8 年）</div>
+            <div class="tl-time">3 大国有集群 + 7 家独立车企</div>
+            <div class="tl-desc">国有侧三大集群保留竞争主体，混合阵营 7 家（比亚迪、吉利、奇瑞、理想、蔚来、零跑、小米）。联盟内部从"业务协同 + 交叉持股"继续加深。</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <div class="tl-phase">远期终极格局（8–15 年）</div>
+            <div class="tl-time">约 7 家左右</div>
+            <div class="tl-desc">国有侧部分集群内部可进一步合并（长安北汽、东风上汽、一汽广汽各自合并为一家），从 6 家法人压缩到 3 大集团；混合阵营继续收缩至比亚迪、吉利、奇瑞、小米为主，理想、小鹏、长城、蔚来、零跑部分被并购或出清。远期终极：3 大国有集群 + 3–4 家独立集团。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="block-title">远期"丧失独立整车集团资格"风险排序（由高到低）</h3>
+    <p class="body">以下排序衡量各主体在长周期寡头深化阶段，被并购或退出独立集团行列的概率（推演假设）。</p>
+    <div class="chart-card">
+      <div class="c-title">远期被整合风险指数（示意排序，0–100）</div>
+      <div class="c-sub">口径：相对排序，数值为推演假设权重，非绝对概率</div>
+      <svg class="chart" viewBox="0 0 1040 420" role="img" aria-label="远期被整合风险指数排序横向条形图">
+        <line x1="70" y1="24" x2="70" y2="330" stroke="#d6d0c4"/>
+        <g stroke="#ece8de" stroke-width="1">
+          <line x1="70" y1="24" x2="1030" y2="24"/>
+          <line x1="310" y1="24" x2="310" y2="330"/>
+          <line x1="550" y1="24" x2="550" y2="330"/>
+          <line x1="790" y1="24" x2="790" y2="330"/>
+        </g>
+        <g font-family="'Noto Sans SC',sans-serif" font-size="11" fill="#8a94a1" text-anchor="end">
+          <text x="62" y="330">0</text><text x="302" y="330">25</text><text x="542" y="330">50</text><text x="782" y="330">75</text><text x="1018" y="330">100</text>
+        </g>
+        <g font-family="'Noto Sans SC',sans-serif" font-size="13" fill="#1d2530" text-anchor="end">
+          <text x="960" y="36" font-weight="600">比亚迪</text>
+          <text x="960" y="75" font-weight="600">小米</text>
+          <text x="960" y="114" font-weight="600">吉利</text>
+          <text x="960" y="153" font-weight="600">零跑</text>
+          <text x="960" y="192" font-weight="600">奇瑞</text>
+          <text x="960" y="231" font-weight="600">蔚来</text>
+          <text x="960" y="270" font-weight="600">问界/赛力斯</text>
+          <text x="960" y="309" font-weight="600">理想</text>
+        </g>
+        <!-- bars: scale 0-100 -> 9.6px per unit, from x=78 -->
+        <g font-family="'Noto Sans SC',sans-serif" font-size="11" fill="#1d2530">
+          <rect x="78"  y="26"  width="19"  height="18" rx="3" fill="#3f6d5a"/>
+          <rect x="78"  y="65"  width="77"  height="18" rx="3" fill="#3f6d5a"/>
+          <rect x="78"  y="104" width="192" height="18" rx="3" fill="#3f6d5a"/>
+          <rect x="78"  y="143" width="480" height="18" rx="3" fill="#b57a3a"/>
+          <rect x="78"  y="182" width="595" height="18" rx="3" fill="#b57a3a"/>
+          <rect x="78"  y="221" width="653" height="18" rx="3" fill="#b57a3a"/>
+          <rect x="78"  y="260" width="816" height="18" rx="3" fill="#a44a3a"/>
+          <rect x="78"  y="299" width="883" height="18" rx="3" fill="#a44a3a"/>
+          <text x="90" y="39">2 · 安全</text><text x="90" y="78">8 · 收购方</text>
+          <text x="90" y="117">20 · 几乎不可能</text>
+          <text x="250" y="156">50 · 依赖规模</text>
+          <text x="250" y="195">62 · 省内整合</text>
+          <text x="250" y="234">68 · 重资产</text>
+          <text x="250" y="273">85 · 国资整合</text>
+          <text x="250" y="312">92 · 并购标的</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="risk-list">
+      <div class="risk-item"><div class="rk-name">理想</div><div class="rk-bar"><div class="rk-fill" style="width:92%;background:#a44a3a;"></div></div><div class="rk-val">92 · 并购标的</div></div>
+      <div class="risk-item"><div class="rk-name">问界 / 赛力斯</div><div class="rk-bar"><div class="rk-fill" style="width:85%;background:#a44a3a;"></div></div><div class="rk-val">85 · 国资整合</div></div>
+      <div class="risk-item"><div class="rk-name">蔚来</div><div class="rk-bar"><div class="rk-fill" style="width:68%;background:#b57a3a;"></div></div><div class="rk-val">68 · 重资产</div></div>
+      <div class="risk-item"><div class="rk-name">奇瑞</div><div class="rk-bar"><div class="rk-fill" style="width:62%;background:#b57a3a;"></div></div><div class="rk-val">62 · 省内整合</div></div>
+      <div class="risk-item"><div class="rk-name">零跑</div><div class="rk-bar"><div class="rk-fill" style="width:50%;background:#b57a3a;"></div></div><div class="rk-val">50 · 依赖规模</div></div>
+      <div class="risk-item"><div class="rk-name">吉利</div><div class="rk-bar"><div class="rk-fill" style="width:20%;background:#3f6d5a;"></div></div><div class="rk-val">20 · 几乎不可能</div></div>
+      <div class="risk-item"><div class="rk-name">小米</div><div class="rk-bar"><div class="rk-fill" style="width:8%;background:#3f6d5a;"></div></div><div class="rk-val">8 · 收购方</div></div>
+      <div class="risk-item"><div class="rk-name">比亚迪</div><div class="rk-bar"><div class="rk-fill" style="width:2%;background:#3f6d5a;"></div></div><div class="rk-val">2 · 安全</div></div>
+    </div>
+
+    <h3 class="block-title">关键变量与不确定性（最坏环境的边界）</h3>
+    <div class="cluster-grid">
+      <div class="cluster">
+        <div class="c-head"><h4>政策与贸易变量</h4><div class="tag">最大变数</div></div>
+        <div class="c-body">
+          <p><strong>海外政策：</strong>欧盟碳关税、美国高关税、各国本地保护政策，直接冲击上汽 MG、奇瑞这类出海大户，改写海外销量盘子。</p>
+          <p><strong>合资萎缩速度：</strong>若大众、丰田下滑比预期更快，国有集团现金流压力更早到来，加速同联盟内部深度整合。</p>
+        </div>
+      </div>
+      <div class="cluster">
+        <div class="c-head"><h4>企业层面变量</h4><div class="tag">改写命运的关键</div></div>
+        <div class="c-body">
+          <p><strong>岚图守住 MPV 基本盘：</strong>只要梦想家稳定月销、毛利转正、和奕派打通集采，东风集团会保留岚图独立品牌。</p>
+          <p><strong>深蓝赢得赛马：</strong>若深蓝稳住销量、毛利转正，长安会保留三品牌长期共存；否则品牌淡出、技术沉淀到启源。</p>
+          <p><strong>理想守住细分：</strong>若高端家庭市场容量长期稳定、巨头不愿深度投入，理想可持续小而美的独立生存。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <div class="ct-title">一句话收束全篇</div>
+      <p>合资盘持续萎缩是天然催化剂，市场会倒逼国有车企从松散走向协同，民营阵营在淘汰赛中出清。远期稳态：<strong>三大国有集群 + 七家独立车企 = 10 家整车集团</strong>，之后仍可能二次收敛。但地方国资、外资合资协议两道门槛，决定整合是长周期、渐进式的，不会一蹴而就；而无论国企民企，<strong>没有稳定现金流、无法维持新品迭代、没有差异化壁垒的品牌，都会在消费者视角被逐步淘汰。</strong></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h5>推演假设与边界说明</h5>
+    <p>本报告为基于"最坏市场环境"前提的情景推演研报，内容整合自多轮产业讨论。所有销量、份额、风险指数均为推演假设，非实际经营数据或预测，不构成任何投资或经营建议。涉及的具体企业命运判断，取决于未来市场、政策与技术路线等大量不确定因素。</p>
+    <p style="margin-top:10px;">生成于 2026-10 · 中国汽车产业长期格局推演</p>
+  </div>
+</footer>
+
+</body>
+</html>
