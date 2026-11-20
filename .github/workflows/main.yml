@@ -1,0 +1,27 @@
+  name: Assemble split files
+  on: workflow_dispatch
+  jobs:
+    assemble:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      steps:
+        - uses: actions/checkout@v4
+        - name: Join and decode
+          run: |
+            mkdir -p tmp_out
+            # GEEA 文件：5 个分块
+            cat .split/geea_part_* | base64 -d > "tmp_out/GEEA平台座舱算力可迭代服务战略提案.docx"
+            # 西周文件：7 个分块
+            cat .split/xizhou_part_* | base64 -d > "tmp_out/西周早期称谓音译假说论证.docx"
+            ls -la tmp_out/
+            mv "tmp_out/GEEA平台座舱算力可迭代服务战略提案.docx" "关于若干问题的逻辑推导/"
+            mv "tmp_out/西周早期称谓音译假说论证.docx" "关于若干问题的逻辑推导/"
+            rm -rf tmp_out .split
+        - name: Commit
+          run: |
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "拼接大文件并清理分块"
+            git push
